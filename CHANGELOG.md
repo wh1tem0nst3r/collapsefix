@@ -1,13 +1,16 @@
 # Changelog
 
-## 1.0.1 (unreleased)
+## 1.0.1 (2026-11-13): first public release
 - `heap_guard` (new, on by default): a crash while loading a save (`collapse.exe` access violation). When a block
   of the game's memory became free, its allocator could hand part of it back to Windows, report a failure, then
   write into the part it no longer had; it could also give back memory next to the block. Memory now goes back
   to Windows only when all of the block can go, and never past it. Tested without the game on the game's own code
   (`tools/heapguard_test.c`) and in play.
+- `borderless` now also works when every other D3D option in the ini is off; before, it was silently ignored then.
+  Found in the universal-modder review.
+- Checked with a 28-case regression (every ini key on and off, start to the menu): all clean.
 
-## 1.0.0 (2026-11-02): first release version
+## 1.0.0 (2026-11-02): first release version, not published
 Tested on the Steam build (`collapse.exe` PE 2008-10-13), Windows 11, NVIDIA RTX 3050 Ti Laptop and AMD Radeon
 iGPU, 1920×1080. The whole campaign was played through on this fix, then a release regression: every ini key on
 and off, exclusive mode with 84 Alt+Tabs, a virtual gamepad, and a clean install from Steam by the README.
