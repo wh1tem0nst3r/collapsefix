@@ -39,5 +39,5 @@ checks the exe hash, keeps `collapse.exe.bak`, and `--restore` puts the original
 - **Diagnostics**: `save_log` (saves the game failed to write, and a Controlled Folder Access warning), `input`
   (DirectInput errors), `[log] d3d_counts` (live D3D resources).
 
-Known issues are listed in `README.md`. Development versions 0.1 to 0.5.7 were not released; how each fix was
+Known issues are listed in the README. Development versions 0.1 to 0.5.7 were not released; how each fix was
 found is in the universal-modder field note on Collapse.

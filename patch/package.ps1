@@ -1,5 +1,6 @@
 # Make the release zip from a build.ps1 output folder: the files a player unzips into the game folder, plus the
-# README, CHANGELOG and the universal-modder repository's LICENSE. The version comes from FIX_VERSION in collapsefix.c.
+# plain-text README.txt for players, CHANGELOG and the repository's LICENSE. The version comes from FIX_VERSION in
+# collapsefix.c.
 # usage: powershell -ExecutionPolicy Bypass -File package.ps1 -Build <build folder> -Out <release folder>
 param([Parameter(Mandatory = $true)][string]$Build, [Parameter(Mandatory = $true)][string]$Out)
 $ErrorActionPreference = 'Stop'
@@ -16,7 +17,7 @@ if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
 New-Item -ItemType Directory -Force $stage | Out-Null
 Copy-Item "$Build\dinput8.dll", "$Build\laa_patch.exe" $stage
 Copy-Item "$PSScriptRoot\collapsefix.ini" $stage
-Copy-Item "$project\README.md", "$project\CHANGELOG.md", "$repo\LICENSE" $stage
+Copy-Item "$project\README.txt", "$project\CHANGELOG.md", "$repo\LICENSE" $stage
 $zip = Join-Path $Out "$name.zip"
 if (Test-Path $zip) { Remove-Item $zip -Force }
 Compress-Archive -Path "$stage\*" -DestinationPath $zip
