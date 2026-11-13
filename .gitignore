@@ -1,0 +1,7 @@
+build/
+release/
+*.o
+*.exe
+*.dll
+*.zip
+__pycache__/
